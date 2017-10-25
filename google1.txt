@@ -1,0 +1,43 @@
+﻿  public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner sc=new Scanner(System.in);
+        int i,j=0,k=0,max=0,found=0;
+        String word=null,temp1;
+        
+        System.out.println("enter s");
+        String s=sc.next();
+        System.out.println("enter size of d");
+        int n=sc.nextInt();
+        System.out.println("enter values of d");
+        String d[]=new String[n];
+
+       for(i=0;i<n;i++)// taking array input of d
+        {
+        d[i]=sc.next();
+        System.out.println("");
+        }
+        for(i=0;i<d.length;i++)//equating chars of s to each entry of d
+        {
+            while(j<s.length()&&found<d[i].length())
+            {
+        temp1=s.substring(j, j+1);
+        
+        if(temp1.equals(d[i].substring(k, k+1)))
+        {
+        found++;
+        
+        k++;
+        }
+        j++;
+        }
+        if(found==d[i].length()&&d[i].length()>max)
+        {
+        word=d[i];
+        System.out.println(word);
+        max=word.length();
+        }
+        j=0;
+        k=0;
+        }
+        System.out.println("longest subsequence is "+word);
+    }
